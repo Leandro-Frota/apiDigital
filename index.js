@@ -77,7 +77,7 @@ const server = http.createServer((req, res) => {
             });
         } else if (method === 'DELETE' && url.includes( '/clients')) {
             const itemId = url.split('/')[2];
-            fs.readFile(FILE_PATH, JSON.stringify(items), (err)=>{
+            fs.readFile(FILE_PATH, 'utf8', (err,data)=>{
                 if(err){
                     console.error(err);
                     res.writeHead(500)
